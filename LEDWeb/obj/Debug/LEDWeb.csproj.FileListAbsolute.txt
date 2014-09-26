@@ -30,3 +30,7 @@ C:\FileStore\Personal\LED\LEDWeb\bin\System.Web.WebPages.Razor.xml
 C:\FileStore\Personal\LED\LEDWeb\obj\Debug\LEDWeb.csprojResolveAssemblyReference.cache
 C:\FileStore\Personal\LED\LEDWeb\obj\Debug\LEDWeb.dll
 C:\FileStore\Personal\LED\LEDWeb\obj\Debug\LEDWeb.pdb
+C:\FileStore\Personal\LED\LEDWeb\bin\Entities.dll
+C:\FileStore\Personal\LED\LEDWeb\bin\Services.dll
+C:\FileStore\Personal\LED\LEDWeb\bin\Entities.pdb
+C:\FileStore\Personal\LED\LEDWeb\bin\Services.pdb
