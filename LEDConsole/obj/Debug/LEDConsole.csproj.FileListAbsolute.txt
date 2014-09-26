@@ -8,3 +8,13 @@ D:\Personal\LED\LEDConsole\bin\Debug\Services.pdb
 D:\Personal\LED\LEDConsole\obj\Debug\LEDConsole.csprojResolveAssemblyReference.cache
 D:\Personal\LED\LEDConsole\obj\Debug\LEDConsole.exe
 D:\Personal\LED\LEDConsole\obj\Debug\LEDConsole.pdb
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\LEDConsole.exe.config
+C:\FileStore\Personal\LED\LEDConsole\obj\Debug\LEDConsole.exe
+C:\FileStore\Personal\LED\LEDConsole\obj\Debug\LEDConsole.pdb
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\LEDConsole.exe
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\LEDConsole.pdb
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\Entities.dll
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\Services.dll
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\Entities.pdb
+C:\FileStore\Personal\LED\LEDConsole\bin\Debug\Services.pdb
+C:\FileStore\Personal\LED\LEDConsole\obj\Debug\LEDConsole.csprojResolveAssemblyReference.cache

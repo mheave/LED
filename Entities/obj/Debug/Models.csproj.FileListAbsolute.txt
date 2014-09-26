@@ -3,3 +3,8 @@ D:\Personal\LED\Entities\bin\Debug\Entities.pdb
 D:\Personal\LED\Entities\obj\Debug\Models.csprojResolveAssemblyReference.cache
 D:\Personal\LED\Entities\obj\Debug\Entities.dll
 D:\Personal\LED\Entities\obj\Debug\Entities.pdb
+C:\FileStore\Personal\LED\Entities\bin\Debug\Entities.dll
+C:\FileStore\Personal\LED\Entities\bin\Debug\Entities.pdb
+C:\FileStore\Personal\LED\Entities\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\FileStore\Personal\LED\Entities\obj\Debug\Entities.dll
+C:\FileStore\Personal\LED\Entities\obj\Debug\Entities.pdb

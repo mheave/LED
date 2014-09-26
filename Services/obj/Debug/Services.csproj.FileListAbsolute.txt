@@ -5,3 +5,10 @@ D:\Personal\LED\Services\obj\Debug\Services.dll
 D:\Personal\LED\Services\obj\Debug\Services.pdb
 D:\Personal\LED\Services\bin\Debug\Entities.dll
 D:\Personal\LED\Services\bin\Debug\Entities.pdb
+C:\FileStore\Personal\LED\Services\bin\Debug\Services.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\Services.pdb
+C:\FileStore\Personal\LED\Services\bin\Debug\Entities.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\Entities.pdb
+C:\FileStore\Personal\LED\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+C:\FileStore\Personal\LED\Services\obj\Debug\Services.dll
+C:\FileStore\Personal\LED\Services\obj\Debug\Services.pdb
