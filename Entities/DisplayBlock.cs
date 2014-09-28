@@ -13,9 +13,7 @@ namespace Models
 	public class NumericDisplayBlock
 	{
 		public int BlockPosition { get; set; }
-		public Dictionary<SegmentPosition,DisplayBlockSegment> Segments = new Dictionary<SegmentPosition, DisplayBlockSegment>();
 		public IntegerMap IntegerMap { get; set; }
-		public List<Line> Lines = new List<Line>();
 
 		public NumericDisplayBlock() { }
 
@@ -30,17 +28,10 @@ namespace Models
 		
 	public class DisplayBlockSegment
 	{
-		public bool isOn { get; private set; }
+		public SegmentPosition SegmentPosition { get; set; }
 
-		public void TurnSegmentOn()
-		{
-			isOn = true;
-		}
+		public bool IsOn { get; set; }
 
-		public void TurnSegmentOff()
-		{
-			isOn = false;
-		}
 	}
 
 	public enum SegmentPosition
@@ -52,8 +43,6 @@ namespace Models
 		UpperRight = 4,
 		LowerRight = 5,
 		Middle = 6,
-		MiddleLeft = 7,
-		MiddleRight = 8
 	}
 }
 

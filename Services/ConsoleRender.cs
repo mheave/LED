@@ -11,14 +11,17 @@ namespace Services
 {
 	public class ConsoleRender : Rendering 
 	{
-		public NumericDisplay display { get; private set;}
-		public int NumberOfBlocks { get { return display.Blocks.Count;} }
-		public List<NumericDisplayBlock> Blocks { get { return display.Blocks;} }
+		public NumericDisplay Display { get; private set;}
+		private readonly List<ConsoleRenderContents> _consoleRenderContents = new List<ConsoleRenderContents>();
+
+		public ConsoleRender(int i)
+		{
+			Display = CreateNumericDisplayFromInteger(i);
+			CreateBlockLines();	
+		}
 
 		public override void RenderDisplay(int i)
 		{
-			display = CreateNumericDisplayFromInteger(i);
-			CreateBlockLines();		
 			RenderBlockLines();
 		}
 
@@ -30,13 +33,13 @@ namespace Services
 			var lineFour	= new StringBuilder();
 			var lineFive	= new StringBuilder();
 
-			foreach(NumericDisplayBlock block in Blocks)
+			foreach(var consoleContent in _consoleRenderContents)
 			{
-				lineOne.Append(block.Lines.First(l => l.LineNumber==1).LineContents);
-				lineTwo.Append(block.Lines.First(l => l.LineNumber==2).LineContents);
-				lineThree.Append(block.Lines.First(l => l.LineNumber==3).LineContents);
-				lineFour.Append(block.Lines.First(l => l.LineNumber==4).LineContents);
-				lineFive.Append(block.Lines.First(l => l.LineNumber==5).LineContents);
+				lineOne.Append(consoleContent.Lines.First(l => l.LineNumber==1).LineContents);
+				lineTwo.Append(consoleContent.Lines.First(l => l.LineNumber==2).LineContents);
+				lineThree.Append(consoleContent.Lines.First(l => l.LineNumber==3).LineContents);
+				lineFour.Append(consoleContent.Lines.First(l => l.LineNumber==4).LineContents);
+				lineFive.Append(consoleContent.Lines.First(l => l.LineNumber==5).LineContents);
 			}			
 			
 			Console.WriteLine(lineOne.ToString());
@@ -48,13 +51,15 @@ namespace Services
 
 		private void CreateBlockLines()
 		{
-			foreach(var block in Blocks)
+			foreach (var numericDisplayBlock in Display.Blocks)
 			{
-				block.Lines.Add(LineOne(block));
-				block.Lines.Add(LineTwo(block));
-				block.Lines.Add(LineThree(block));
-				block.Lines.Add(LineFour(block));
-				block.Lines.Add(LineFive(block));
+				var blockContent = new ConsoleRenderContents { NumericDisplayBlock = numericDisplayBlock};
+				blockContent.Lines.Add(LineOne(numericDisplayBlock));
+				blockContent.Lines.Add(LineOne(numericDisplayBlock));
+				blockContent.Lines.Add(LineTwo(numericDisplayBlock));
+				blockContent.Lines.Add(LineThree(numericDisplayBlock));
+				blockContent.Lines.Add(LineFour(numericDisplayBlock));
+				blockContent.Lines.Add(LineFive(numericDisplayBlock));
 			}
 		}
 
@@ -62,7 +67,7 @@ namespace Services
 		private Line LineOne(NumericDisplayBlock block)
 		{
 			string line = "   ";
-			if(block.IntegerMap.BlockMap[SegmentPosition.Top].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Top).IsOn.Equals(true))
 			{
 				line = " _ ";
 			}
@@ -76,7 +81,7 @@ namespace Services
 		private Line LineTwo(NumericDisplayBlock block)
 		{
 			var lineString = new StringBuilder();
-			if(block.IntegerMap.BlockMap[SegmentPosition.UpperLeft].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.UpperLeft).IsOn.Equals(true))
 			{
 				lineString.Append("| ");
 			}
@@ -84,7 +89,7 @@ namespace Services
 			{
 				lineString.Append("  ");
 			}
-			if(block.IntegerMap.BlockMap[SegmentPosition.UpperRight].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.UpperRight).IsOn.Equals(true))
 			{
 				lineString.Append("|");
 			}
@@ -102,7 +107,7 @@ namespace Services
 		private Line LineThree(NumericDisplayBlock block)
 		{
 			var line = "   ";
-			if(block.IntegerMap.BlockMap[SegmentPosition.Middle].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Middle).IsOn.Equals(true))
 			{
 				line = " - ";
 			}
@@ -116,7 +121,7 @@ namespace Services
 		private Line LineFour(NumericDisplayBlock block)
 		{
 			var lineString = new StringBuilder();
-			if(block.IntegerMap.BlockMap[SegmentPosition.LowerLeft].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.LowerLeft).IsOn.Equals(true))
 			{
 				lineString.Append("| ");
 			}
@@ -124,7 +129,7 @@ namespace Services
 			{
 				lineString.Append("  ");
 			}
-			if(block.IntegerMap.BlockMap[SegmentPosition.LowerRight].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.LowerRight).IsOn.Equals(true))
 			{
 				lineString.Append("|");
 			}
@@ -142,7 +147,7 @@ namespace Services
 		private Line LineFive(NumericDisplayBlock block)
 		{
 			var line = "   ";
-			if(block.IntegerMap.BlockMap[SegmentPosition.Bottom].Equals(true))
+			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Bottom).IsOn.Equals(true))
 			{
 				line = " - ";
 			}

@@ -14,9 +14,7 @@ namespace LEDConsole
 		{
 			Console.WriteLine(" ----- Welcome to LED. The console version! -----\n\n");
 			
-			ConsoleRender render =  new ConsoleRender();
-
-			LEDConsole console = new LEDConsole();
+			var console = new LEDConsole();
 			console.MainAppThread();
 
 			Console.ReadLine();

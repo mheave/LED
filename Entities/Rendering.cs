@@ -41,6 +41,12 @@ namespace Entities
 		}	
 	}
 
+	public class ConsoleRenderContents
+	{
+		public NumericDisplayBlock NumericDisplayBlock { get; set; }
+		public List<Line> Lines = new List<Line>();
+	}
+
 	public class Line
 	{
 		public int LineNumber { get; set; }

@@ -35,27 +35,9 @@ namespace LEDConsole
 
 		public void ProcessValidInteger(int validInt)
 		{
-			var consoleRender = new ConsoleRender();
+			var consoleRender = new ConsoleRender(validInt);
 
-			consoleRender.RenderDisplay(validInt);
-
-
-			if (DEBUG) { 
-			OutputToConsole(string.Format("Number of blocks: {0}",consoleRender.display.Blocks.Count()));
-
-			foreach (var block in consoleRender.display.Blocks)
-			{
-				OutputToConsole(string.Format("Block number: {0}", block.BlockPosition));
-
-				foreach (var segment in block.IntegerMap.BlockMap)
-				{
-					OutputToConsole(string.Format("segment {0} set to {1}", segment.Key, segment.Value));
-				}
-
-			}
-			}
-
-			
+			consoleRender.RenderDisplay(validInt);	
 
 		}
 
