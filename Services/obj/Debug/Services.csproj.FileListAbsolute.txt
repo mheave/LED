@@ -12,3 +12,16 @@ C:\FileStore\Personal\LED\Services\bin\Debug\Entities.pdb
 C:\FileStore\Personal\LED\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
 C:\FileStore\Personal\LED\Services\obj\Debug\Services.dll
 C:\FileStore\Personal\LED\Services\obj\Debug\Services.pdb
+C:\FileStore\Personal\LED\Services\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Helpers.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Mvc.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Razor.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.Razor.dll
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Helpers.xml
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Mvc.xml
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.Razor.xml
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.xml
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\FileStore\Personal\LED\Services\bin\Debug\System.Web.WebPages.Razor.xml

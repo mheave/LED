@@ -1,7 +1,25 @@
-﻿@{
+﻿@using Microsoft.Ajax.Utilities
+@model LEDWeb.Models.LEDViewModel
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Welcome to LED!</h2>
+<h1>Welcome to LED!</h1>
 
+@using (Html.BeginForm("Index","Home",FormMethod.Post)) {
 
+<p>Please enter a valid integer: @Html.TextBoxFor(model => model.UserInput,new {
+							id = "userInput"
+							}) <input type="submit" value="Render!" /></p>
+
+}
+
+@if (!Model.UserInput.IsNullOrWhiteSpace()) {
+	<h2>Result</h2>
+	
+	<p>User input is @(Model.IsInputValid ? "valid" : "invalid")</p>
+	
+	if(Model.IsInputValid) {
+		<h3>Render out: @Model.UserInput</h3>
+	}
+}

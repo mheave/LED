@@ -7,7 +7,8 @@ using Services;
 namespace LEDWeb.Models {
 	public class LEDViewModel 
 	{
-		[WebValidation]
 		public string UserInput { get; set; }
+
+		public bool IsInputValid { get; set; }
 	}
 }
