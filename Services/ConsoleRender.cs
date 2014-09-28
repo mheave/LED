@@ -60,6 +60,7 @@ namespace Services
 				blockContent.Lines.Add(LineThree(numericDisplayBlock));
 				blockContent.Lines.Add(LineFour(numericDisplayBlock));
 				blockContent.Lines.Add(LineFive(numericDisplayBlock));
+				_consoleRenderContents.Add(blockContent);
 			}
 		}
 
