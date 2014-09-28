@@ -54,10 +54,10 @@ namespace Services
 		#region Lines
 		protected override Line LineOne(NumericDisplayBlock block)
 		{
-			string line = "   ";
+			var line = "   ";
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Top).IsOn.Equals(true))
 			{
-				line = " _ ";
+				line = " - ";
 			}
 			return new Line
 			{

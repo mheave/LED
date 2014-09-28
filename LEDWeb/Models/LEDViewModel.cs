@@ -10,5 +10,11 @@ namespace LEDWeb.Models {
 		public string UserInput { get; set; }
 
 		public bool IsInputValid { get; set; }
+
+		public string RowOneContents { get; set; }
+		public string RowTwoContents { get; set; }
+		public string RowThreeContents { get; set; }
+		public string RowFourContents { get; set; }
+		public string RowFiveContents { get; set; }
 	}
 }
