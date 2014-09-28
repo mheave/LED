@@ -10,6 +10,8 @@ namespace Entities
 	public abstract class Rendering 
 	{
 		public abstract void RenderDisplay(int i);
+		public NumericDisplay Display { get; set;}
+		 
 		
 		public NumericDisplay CreateNumericDisplayFromInteger(int integer)
 		{
@@ -39,9 +41,31 @@ namespace Entities
 			Array.Reverse(arr);
 			return arr;
 		}	
+
+		protected List<RenderContents> CreateBlockLines()
+		{
+			var consoleRenderContents = new List<RenderContents>();
+			foreach (var numericDisplayBlock in Display.Blocks)
+			{
+				var blockContent = new RenderContents { NumericDisplayBlock = numericDisplayBlock};
+				blockContent.Lines.Add(LineOne(numericDisplayBlock));
+				blockContent.Lines.Add(LineTwo(numericDisplayBlock));
+				blockContent.Lines.Add(LineThree(numericDisplayBlock));
+				blockContent.Lines.Add(LineFour(numericDisplayBlock));
+				blockContent.Lines.Add(LineFive(numericDisplayBlock));
+				consoleRenderContents.Add(blockContent);
+			}
+			return consoleRenderContents;
+		}
+
+		internal protected abstract Line LineOne(NumericDisplayBlock block);
+		internal protected abstract Line LineTwo(NumericDisplayBlock block);
+		internal protected abstract Line LineThree(NumericDisplayBlock block);
+		internal protected abstract Line LineFour(NumericDisplayBlock block);
+		internal protected abstract Line LineFive(NumericDisplayBlock block);
 	}
 
-	public class ConsoleRenderContents
+	public class RenderContents
 	{
 		public NumericDisplayBlock NumericDisplayBlock { get; set; }
 		public List<Line> Lines = new List<Line>();

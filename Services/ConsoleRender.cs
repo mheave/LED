@@ -11,13 +11,13 @@ namespace Services
 {
 	public class ConsoleRender : Rendering 
 	{
-		public NumericDisplay Display { get; private set;}
-		private readonly List<ConsoleRenderContents> _consoleRenderContents = new List<ConsoleRenderContents>();
+		
+		private readonly List<RenderContents> _consoleRenderContents = new List<RenderContents>();
 
 		public ConsoleRender(int i)
 		{
 			Display = CreateNumericDisplayFromInteger(i);
-			CreateBlockLines();	
+			_consoleRenderContents = CreateBlockLines();
 		}
 
 		public override void RenderDisplay(int i)
@@ -49,23 +49,10 @@ namespace Services
 			Console.WriteLine(lineFive.ToString());
 		}
 
-		private void CreateBlockLines()
-		{
-			foreach (var numericDisplayBlock in Display.Blocks)
-			{
-				var blockContent = new ConsoleRenderContents { NumericDisplayBlock = numericDisplayBlock};
-				blockContent.Lines.Add(LineOne(numericDisplayBlock));
-				blockContent.Lines.Add(LineOne(numericDisplayBlock));
-				blockContent.Lines.Add(LineTwo(numericDisplayBlock));
-				blockContent.Lines.Add(LineThree(numericDisplayBlock));
-				blockContent.Lines.Add(LineFour(numericDisplayBlock));
-				blockContent.Lines.Add(LineFive(numericDisplayBlock));
-				_consoleRenderContents.Add(blockContent);
-			}
-		}
+
 
 		#region Lines
-		private Line LineOne(NumericDisplayBlock block)
+		protected override Line LineOne(NumericDisplayBlock block)
 		{
 			string line = "   ";
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Top).IsOn.Equals(true))
@@ -79,7 +66,7 @@ namespace Services
 			};
 		}
 
-		private Line LineTwo(NumericDisplayBlock block)
+		protected override Line LineTwo(NumericDisplayBlock block)
 		{
 			var lineString = new StringBuilder();
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.UpperLeft).IsOn.Equals(true))
@@ -105,7 +92,7 @@ namespace Services
 			};
 		}
 
-		private Line LineThree(NumericDisplayBlock block)
+		protected override Line LineThree(NumericDisplayBlock block)
 		{
 			var line = "   ";
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Middle).IsOn.Equals(true))
@@ -119,7 +106,7 @@ namespace Services
 			};
 		}
 
-		private Line LineFour(NumericDisplayBlock block)
+		protected override Line LineFour(NumericDisplayBlock block)
 		{
 			var lineString = new StringBuilder();
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.LowerLeft).IsOn.Equals(true))
@@ -145,7 +132,7 @@ namespace Services
 			};
 		}
 
-		private Line LineFive(NumericDisplayBlock block)
+		protected override Line LineFive(NumericDisplayBlock block)
 		{
 			var line = "   ";
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.Bottom).IsOn.Equals(true))
