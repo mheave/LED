@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities;
-using LEDWeb.Models;
 using Models;
 
 namespace Services {
 	public class WebRender : Rendering 
 	{
 		private readonly List<RenderContents> _webRenderContents = new List<RenderContents>();
+		private readonly Dictionary<int,StringBuilder> _viewModelParameters = new Dictionary<int, StringBuilder>(); 
 
 		public WebRender(int i)
 		{
@@ -21,6 +21,41 @@ namespace Services {
 		public override void RenderDisplay(int i)
 		{
 			// set html properties
+			var lineOne		= new Dictionary<int, string>();
+
+
+
+			var lineTwo		= new StringBuilder();
+			var lineThree	= new StringBuilder();
+			var lineFour	= new StringBuilder();
+			var lineFive	= new StringBuilder();
+
+			//foreach(var webContent in _webRenderContents)
+			//{
+			//	//Line one
+			//lineOne.Add(webContent.Lines.First(l => l.LineNumber==1). webContent.Lines.First(l => l.LineNumber==1).LineContents;
+			//lineOne.Append(string.Format("<span class=\"blockOne\">{0}</span><span class=\"spacer\"></span><span class=\"blockOne\">{1}</span><span class=\"spacer\"></span><span class=\"blockOne\">{2}</span>","-","2","4"));
+
+
+
+
+
+			//	lineOne.Append(webContent.Lines.First(l => l.LineNumber==1).LineContents);
+			//	lineTwo.Append(webContent.Lines.First(l => l.LineNumber==2).LineContents);
+			//	lineThree.Append(webContent.Lines.First(l => l.LineNumber==3).LineContents);
+			//	lineFour.Append(webContent.Lines.First(l => l.LineNumber==4).LineContents);
+			//	lineFive.Append(webContent.Lines.First(l => l.LineNumber==5).LineContents);
+			//}	
+		}
+
+
+
+
+
+
+		public Dictionary<int,StringBuilder> GetHtmlLineConent()
+		{
+			return _viewModelParameters;
 		}
 
 
@@ -121,23 +156,7 @@ namespace Services {
 		}
 		#endregion 
 
-		public Dictionary<int,StringBuilder> GetHtmlLineConent()
-		{
-			var lineOne		= new StringBuilder();
-			var lineTwo		= new StringBuilder();
-			var lineThree	= new StringBuilder();
-			var lineFour	= new StringBuilder();
-			var lineFive	= new StringBuilder();
 
-			foreach(var webContent in _webRenderContents)
-			{
-				lineOne.Append(webContent.Lines.First(l => l.LineNumber==1).LineContents);
-				lineTwo.Append(webContent.Lines.First(l => l.LineNumber==2).LineContents);
-				lineThree.Append(webContent.Lines.First(l => l.LineNumber==3).LineContents);
-				lineFour.Append(webContent.Lines.First(l => l.LineNumber==4).LineContents);
-				lineFive.Append(webContent.Lines.First(l => l.LineNumber==5).LineContents);
-			}	
-		}
 	}
 
 
