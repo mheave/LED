@@ -59,3 +59,29 @@ textarea {
 .validation-summary-valid {
     display: none;
 }
+
+/* LED Table formatting 
+	---------------------------------------------------------
+*/
+.blockOne,.blockTwo,.blockThree {
+	display: inline-block;
+	width: 20px;
+
+}
+.RowOne, .RowThree, .RowFive {
+	height:15px;
+	margin: 0;
+	padding: 0;
+
+}
+
+.spacer {
+	display: inline-block;
+	width: 10px;
+}
+
+.RowTwo, .RowFour {
+	height:15px;
+	margin: 0;
+	padding: 0;
+}
