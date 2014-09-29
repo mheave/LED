@@ -16,7 +16,7 @@ namespace Models
 			{
 				return Maps.First(m => m.Key == integer).Value;
 			}
-			throw new Exceptions.IntegerOutOfRangeException();
+			throw new Exception("integer out of permitted range");
 		}
 	}
 
