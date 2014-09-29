@@ -11,17 +11,18 @@
 	<div class="inputContainer">
 
 		<p>
-			Please enter a valid integer: @Html.TextBoxFor(model => model.UserInput,new {
+			Please enter a valid integer between 1 and 999: @Html.TextBoxFor(model => model.UserInput,new {
 							id = "userInput"
-							}) <input id="renderButton" type="submit" value="Render!" />
+							}) <input id="renderButton" type="submit" value="render" />
 		</p>
 	</div>
 
 }
 
 @if (!Model.UserInput.IsNullOrWhiteSpace()) {
-		if (!Model.InputIsValid) {
-		<p class="invalidInput">Sorry, the value you entered, @Model.UserInput, is not valid.</p>
+	<div class="renderContainer">
+		@if (!Model.InputIsValid) {
+		<p class="invalidInput">Sorry, the value you entered, <strong>@Model.UserInput</strong>, is not valid.</p>
 		} else {
 
 		<p class="validInput">Render out: @Model.UserInput</p>
@@ -45,6 +46,7 @@
 			@Html.Raw(Model.RowContents[5].ToString())
 		</div>
 		}
+	</div>
 }
 
 

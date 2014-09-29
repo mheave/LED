@@ -112,16 +112,21 @@ h1 {
 	background: lightslategrey;
 }
 
-
+.renderContainer {
+	width: 100%;
+	text-align: center;
+}
 
 .invalidInput {
 	padding: 0.5em;
 	width:300px; 
 	text-align: center;
 	background: indianred;
+	margin: auto;
 }
 
 .validInput {
+	margin: auto;
 	padding: 0.5em;
 	width:200px; 
 	text-align: center;
