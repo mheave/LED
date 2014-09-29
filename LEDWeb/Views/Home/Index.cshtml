@@ -8,58 +8,43 @@
 
 @using (Html.BeginForm("Index","Home",FormMethod.Post)) {
 
-<p>Please enter a valid integer: @Html.TextBoxFor(model => model.UserInput,new {
+	<div class="inputContainer">
+
+		<p>
+			Please enter a valid integer: @Html.TextBoxFor(model => model.UserInput,new {
 							id = "userInput"
-							}) <input type="submit" value="Render!" /></p>
+							}) <input id="renderButton" type="submit" value="Render!" />
+		</p>
+	</div>
 
 }
 
 @if (!Model.UserInput.IsNullOrWhiteSpace()) {
-	<h2>Result</h2>
-	
-	<p>User input is @(Model.IsInputValid ? "valid" : "invalid")</p>
-	
-	if(Model.IsInputValid) {
-		<h3>Render out: @Model.UserInput</h3>
-	}
+		if (!Model.InputIsValid) {
+		<p class="invalidInput">Sorry, the value you entered, @Model.UserInput, is not valid.</p>
+		} else {
+
+		<p class="validInput">Render out: @Model.UserInput</p>
+		<div class="RowOne">
+			@Html.Raw(Model.RowContents[1].ToString())
+		</div>
+
+		<div class="RowTwo">
+			@Html.Raw(Model.RowContents[2].ToString())
+		</div>
+
+		<div class="RowThree">
+			@Html.Raw(Model.RowContents[3].ToString())
+		</div>
+
+		<div class="RowFour">
+			@Html.Raw(Model.RowContents[4].ToString())
+		</div>
+
+		<div class="RowFive">
+			@Html.Raw(Model.RowContents[5].ToString())
+		</div>
+		}
 }
 
-<div class="RowOne">
-	<span class="blockOne">&nbsp;-&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockTwo">&nbsp;--&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockThree">&nbsp;--&nbsp;</span>
-</div>
 
-<div class="RowTwo">
-	<span class="blockOne">|&nbsp;&nbsp;&nbsp;| </span>
-	<span class="spacer"></span>
-	<span class="blockTwo">|&nbsp;&nbsp;&nbsp;|</span>
-	<span class="spacer"></span>
-	<span class="blockThree">|&nbsp;&nbsp;&nbsp;|</span>
-</div>
-
-<div class="RowThree">
-	<span class="blockOne">&nbsp;--&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockTwo">&nbsp;--&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockThree">&nbsp;--&nbsp;</span>
-</div>
-
-<div class="RowFour">
-	<span class="blockOne">|&nbsp;&nbsp;&nbsp;|</span>
-	<span class="spacer"></span>
-	<span class="blockTwo">|&nbsp;&nbsp;&nbsp;|</span>
-	<span class="spacer"></span>
-	<span class="blockThree">|&nbsp;&nbsp;&nbsp;|</span>
-</div>
-
-<div class="RowFive">
-	<span class="blockOne">&nbsp;--&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockTwo">&nbsp;--&nbsp;</span>
-	<span class="spacer"></span>
-	<span class="blockThree">&nbsp;--&nbsp;</span>
-</div>

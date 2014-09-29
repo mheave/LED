@@ -1,6 +1,6 @@
 ﻿body {
     font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    font-family: webkit-small-control, Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background-color: #fff;
 }
@@ -65,7 +65,7 @@ textarea {
 */
 .blockOne,.blockTwo,.blockThree {
 	display: inline-block;
-	width: 20px;
+	width: 25px;
 
 }
 .RowOne, .RowThree, .RowFive {
@@ -84,4 +84,46 @@ textarea {
 	height:15px;
 	margin: 0;
 	padding: 0;
+}
+
+.inputContainer {
+	text-align: center;
+	width: 100%;
+}
+
+h1 {
+	width: 400px;
+	border-radius: 4px;
+	text-align: center;
+	background: lightgray;
+	padding: 1em;
+	margin:auto;
+}
+
+#renderButton {
+	background: lightblue;
+	border-radius: 4px;
+	font-size: 100%;
+	padding: .5em 1em;
+	border: 0 rgba(0,0,0,0);
+}
+
+#renderButton:hover {
+	background: lightslategrey;
+}
+
+
+
+.invalidInput {
+	padding: 0.5em;
+	width:300px; 
+	text-align: center;
+	background: indianred;
+}
+
+.validInput {
+	padding: 0.5em;
+	width:200px; 
+	text-align: center;
+	background: lightgreen;
 }

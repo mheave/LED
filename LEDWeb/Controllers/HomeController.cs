@@ -22,7 +22,10 @@ namespace LEDWeb.Controllers
 		{
 			var _inputHandler = new InputHandler();
 			if (_inputHandler.IsInputValid(ledViewModel.UserInput)) {
-				ledViewModel.IsInputValid = true;
+				ledViewModel.InputIsValid = true;				
+				var webRender = new WebRender(int.Parse(ledViewModel.UserInput));
+				webRender.RenderDisplay(int.Parse(ledViewModel.UserInput));
+				ledViewModel.RowContents = webRender.ViewModelRowContent;
 			}
 
 			return View(ledViewModel);

@@ -10,7 +10,7 @@ namespace Services {
 	public class WebRender : Rendering 
 	{
 		private readonly List<RenderContents> _webRenderContents = new List<RenderContents>();
-		private readonly Dictionary<int,StringBuilder> _viewModelParameters = new Dictionary<int, StringBuilder>(); 
+		public readonly Dictionary<int,StringBuilder> ViewModelRowContent = new Dictionary<int, StringBuilder>(); 
 
 		public WebRender(int i)
 		{
@@ -20,42 +20,33 @@ namespace Services {
 
 		public override void RenderDisplay(int i)
 		{
-			// set html properties
-			var lineOne		= new Dictionary<int, string>();
-
-
-
+			var lineOne		= new StringBuilder();
 			var lineTwo		= new StringBuilder();
 			var lineThree	= new StringBuilder();
 			var lineFour	= new StringBuilder();
 			var lineFive	= new StringBuilder();
 
-			//foreach(var webContent in _webRenderContents)
-			//{
-			//	//Line one
-			//lineOne.Add(webContent.Lines.First(l => l.LineNumber==1). webContent.Lines.First(l => l.LineNumber==1).LineContents;
-			//lineOne.Append(string.Format("<span class=\"blockOne\">{0}</span><span class=\"spacer\"></span><span class=\"blockOne\">{1}</span><span class=\"spacer\"></span><span class=\"blockOne\">{2}</span>","-","2","4"));
+			var blockName = "blockOne";
+			foreach(var webContent in _webRenderContents)
+			{
+				lineOne.Append(string.Format("<span class=\"{0}\">{1}</span><span class=\"spacer\"></span>",blockName,webContent.Lines.First(l => l.LineNumber==1).LineContents));
+				lineTwo.Append(string.Format("<span class=\"{0}\">{1}</span><span class=\"spacer\"></span>",blockName,webContent.Lines.First(l => l.LineNumber==2).LineContents));
+				lineThree.Append(string.Format("<span class=\"{0}\">{1}</span><span class=\"spacer\"></span>",blockName,webContent.Lines.First(l => l.LineNumber==3).LineContents));
+				lineFour.Append(string.Format("<span class=\"{0}\">{1}</span><span class=\"spacer\"></span>",blockName,webContent.Lines.First(l => l.LineNumber==4).LineContents));
+				lineFive.Append(string.Format("<span class=\"{0}\">{1}</span><span class=\"spacer\"></span>",blockName,webContent.Lines.First(l => l.LineNumber==5).LineContents));
+				blockName = blockName=="blockOne" ? "blockTwo" : "blockThree";
+			}	
 
-
-
-
-
-			//	lineOne.Append(webContent.Lines.First(l => l.LineNumber==1).LineContents);
-			//	lineTwo.Append(webContent.Lines.First(l => l.LineNumber==2).LineContents);
-			//	lineThree.Append(webContent.Lines.First(l => l.LineNumber==3).LineContents);
-			//	lineFour.Append(webContent.Lines.First(l => l.LineNumber==4).LineContents);
-			//	lineFive.Append(webContent.Lines.First(l => l.LineNumber==5).LineContents);
-			//}	
+			ViewModelRowContent.Add(1, lineOne);
+			ViewModelRowContent.Add(2, lineTwo);
+			ViewModelRowContent.Add(3, lineThree);
+			ViewModelRowContent.Add(4, lineFour);	
+			ViewModelRowContent.Add(5, lineFive);
 		}
-
-
-
-
-
 
 		public Dictionary<int,StringBuilder> GetHtmlLineConent()
 		{
-			return _viewModelParameters;
+			return ViewModelRowContent;
 		}
 
 
@@ -92,7 +83,7 @@ namespace Services {
 			}
 			else
 			{
-				lineString.Append("&nbsp;");
+				lineString.Append("&nbsp;&nbsp;");
 			}
 			return new Line
 			{
@@ -118,9 +109,10 @@ namespace Services {
 		protected override Line LineFour(NumericDisplayBlock block)
 		{
 			var lineString = new StringBuilder();
+			
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.LowerLeft).IsOn.Equals(true))
 			{
-				lineString.Append("|&nbsp;&nbsp;&nbsp;");
+				lineString.Append("|&nbsp;&nbsp;");
 			}
 			else
 			{
@@ -128,11 +120,11 @@ namespace Services {
 			}
 			if(block.IntegerMap.BlockSegments.First(bs=>bs.SegmentPosition==SegmentPosition.LowerRight).IsOn.Equals(true))
 			{
-				lineString.Append("|");
+				lineString.Append("&nbsp;|");
 			}
 			else
 			{
-				lineString.Append("&nbsp;");
+				lineString.Append("&nbsp;&nbsp;");
 			}
 			return new Line
 			{
