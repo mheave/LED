@@ -72,7 +72,6 @@
     <Compile Include="InputHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebRender.cs" />
-    <Compile Include="WebValidation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entities\Models.csproj">

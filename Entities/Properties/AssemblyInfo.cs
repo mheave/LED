@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 // Change them to the values specific to your project.
 
 [assembly: AssemblyTitle ("Entities")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription("written by Mark heaver")]
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("")]
-[assembly: AssemblyProduct ("")]
+[assembly: AssemblyProduct("Entities structures for Waterstons test")]
 [assembly: AssemblyCopyright ("mark.heaver")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
